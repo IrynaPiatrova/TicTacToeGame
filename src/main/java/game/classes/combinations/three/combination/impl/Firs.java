@@ -12,16 +12,13 @@ import java.util.List;
  */
 @Component("first")
 public class Firs implements Combination {
-    private List<String> firstCombinationList = new ArrayList<>();
-
-    {
-        firstCombinationList.add(CombinationConstats.A);
-        firstCombinationList.add(CombinationConstats.B);
-        firstCombinationList.add(CombinationConstats.C);
-    }
 
     @Override
     public List<String> getCombination() {
+        List<String> firstCombinationList = new ArrayList<>();
+        firstCombinationList.add(CombinationConstats.A);
+        firstCombinationList.add(CombinationConstats.B);
+        firstCombinationList.add(CombinationConstats.C);
         return firstCombinationList;
     }
 }

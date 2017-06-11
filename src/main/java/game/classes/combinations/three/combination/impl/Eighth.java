@@ -12,10 +12,10 @@ import java.util.List;
  */
 @Component("eighth")
 public class Eighth implements Combination {
-    private List<String> eighthCombinationList = new ArrayList<>();
 
     @Override
     public List<String> getCombination() {
+        List<String> eighthCombinationList = new ArrayList<>();
         eighthCombinationList.add(CombinationConstats.C);
         eighthCombinationList.add(CombinationConstats.F);
         eighthCombinationList.add(CombinationConstats.I);

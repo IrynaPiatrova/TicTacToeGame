@@ -12,16 +12,13 @@ import java.util.List;
  */
 @Component("third")
 public class Third implements Combination {
-    private List<String> thirdCombinationList = new ArrayList<>();
-
-    {
-        thirdCombinationList.add(CombinationConstats.G);
-        thirdCombinationList.add(CombinationConstats.H);
-        thirdCombinationList.add(CombinationConstats.I);
-    }
 
     @Override
     public List<String> getCombination() {
+        List<String> thirdCombinationList = new ArrayList<>();
+        thirdCombinationList.add(CombinationConstats.G);
+        thirdCombinationList.add(CombinationConstats.H);
+        thirdCombinationList.add(CombinationConstats.I);
         return thirdCombinationList;
     }
 }
