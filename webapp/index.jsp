@@ -9,37 +9,30 @@
 <html>
 <head>
     <title>Крестики-Нолики</title>
-    <style>
-        .tbl, .tbl td {
-            border: 1px solid #82817D;
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            background: url(pictures/XO.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .search {
+            font-family: arial;
+            padding: 250px;
         }
     </style>
 </head>
 
 <body>
-<form name=game>
-    <table class="tbl" align="center">
-        <tr>
-            <td><a href="javascript:yourChoice('A')"><img src="pictures/o.gif" name=A></a></td>
-            <td><a href="javascript:yourChoice('B')"><img src="pictures/o.gif" name=B></a></td>
-            <td><a href="javascript:yourChoice('C')"><img src="pictures/o.gif" name=C></a></td>
-        </tr>
-        <tr>
-            <td><a href="javascript:yourChoice('D')"><img src="pictures/o.gif" name=D></a></td>
-            <td><a href="javascript:yourChoice('E')"><img src="pictures/o.gif" name=E></a></td>
-            <td><a href="javascript:yourChoice('F')"><img src="pictures/o.gif" name=F></a></td>
-        </tr>
-        <tr>
-            <td><a href="javascript:yourChoice('G')"><img src="pictures/o.gif" name=G></a></td>
-            <td><a href="javascript:yourChoice('H')"><img src="pictures/o.gif" name=H></a></td>
-            <td><a href="javascript:yourChoice('I')"><img src="pictures/o.gif" name=I></a></td>
-        </tr>
-    </table>
-    <table class="tbl" align="center">
-        <tr>
-            <td><input type='button' value=" Новая игра " onClick="playAgain();"><br></td>
-        </tr>
-    </table>
+<form class="form-inline" action="start" method="post">
+    <div class="search" align="center">
+        <input type="submit" id="buttonSearch" class="btn btn-primary" value="START">
+    </div>
 </form>
 </body>
 </html>

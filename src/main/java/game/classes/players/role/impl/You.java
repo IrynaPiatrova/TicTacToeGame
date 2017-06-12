@@ -1,5 +1,6 @@
 package game.classes.players.role.impl;
 
+import game.classes.constants.SVConstants;
 import game.classes.players.role.Role;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component("you")
 public class You implements Role {
-    private String role = "x";
+    private String role = SVConstants.X;
 
     @Override
     public String getRole() {

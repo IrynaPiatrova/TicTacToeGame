@@ -2,6 +2,8 @@ package game.classes.combinations.three.impl;
 
 import game.classes.combinations.three.CombinationsThreeByThree;
 import game.classes.combinations.three.combination.Combination;
+import game.classes.constants.SVConstants;
+import game.classes.players.role.Solver.RoleSolver;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -30,9 +32,20 @@ public class CombinationsThreeByThreeImpl implements CombinationsThreeByThree {
     private Combination sixth;
     @Resource(name = "third")
     private Combination third;
+    @Resource(name = "roleSolverSb")
+    private RoleSolver sb;
 
-
+    private List<String> filledPositionsX = new ArrayList<>();
+    private List<String> filledPositionsO = new ArrayList<>();
+    private List<String> filledPositions = new ArrayList<>();
     private List<List<String>> combinationsList;
+
+    private String role;
+
+    @Override
+    public String getRole() {
+        return role;
+    }
 
     private void initCombinationList() {
         combinationsList = new ArrayList<>();
@@ -57,5 +70,27 @@ public class CombinationsThreeByThreeImpl implements CombinationsThreeByThree {
         }
         return false;
     }
+
+    @Override
+    public List<String> addFilledPosition(String position) {
+        int sizeFilled = filledPositions.size();
+        String role = sb.getRole(sizeFilled);
+        filledPositions.add(position);
+        if (role.equals(SVConstants.X)) {
+            filledPositionsX.add(position);
+            return filledPositionsX;
+        } else {
+            filledPositionsO.add(position);
+            return filledPositionsO;
+        }
+    }
+
+    @Override
+    public void deletedFilledPositions() {
+        filledPositions.clear();
+        filledPositionsX.clear();
+        filledPositionsO.clear();
+    }
+
 }
 
