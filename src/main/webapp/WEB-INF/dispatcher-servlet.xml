@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <mvc:annotation-driven>
+    </mvc:annotation-driven>
+    <context:component-scan base-package="game"/>
+    <bean id="first" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listFirst"/>
+    </bean>
+    <bean id="second" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listSecond"/>
+    </bean>
+    <bean id="third" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listThird"/>
+    </bean>
+    <bean id="fourth" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listFourth"/>
+    </bean>
+    <bean id="fifth" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listFifth"/>
+    </bean>
+    <bean id="sixth" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listSixth"/>
+    </bean>
+    <bean id="seventh" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listSeventh"/>
+    </bean>
+    <bean id="eighth" class="game.classes.combinations.three.combination.impl.CombinationImpl">
+        <property name="combinationList" ref="listEighth"/>
+    </bean>
+
+    <bean id="combTBT" class="game.classes.combinations.three.impl.CombinationsThreeByThreeImpl">
+        <property name="combinationsFilledList">
+            <list>
+                <ref bean="listFirst"/>
+                <ref bean="listSecond"/>
+                <ref bean="listThird"/>
+                <ref bean="listFourth"/>
+                <ref bean="listFifth"/>
+                <ref bean="listSixth"/>
+                <ref bean="listSeventh"/>
+                <ref bean="listEighth"/>
+            </list>
+        </property>
+    </bean>
+    <util:list id="listFirst">
+        <value>A</value>
+        <value>B</value>
+        <value>C</value>
+    </util:list>
+    <util:list id="listSecond">
+        <value>D</value>
+        <value>E</value>
+        <value>F</value>
+    </util:list>
+    <util:list id="listThird">
+        <value>G</value>
+        <value>H</value>
+        <value>I</value>
+    </util:list>
+    <util:list id="listFourth">
+        <value>A</value>
+        <value>E</value>
+        <value>I</value>
+    </util:list>
+    <util:list id="listFifth">
+        <value>G</value>
+        <value>E</value>
+        <value>C</value>
+    </util:list>
+    <util:list id="listSixth">
+        <value>A</value>
+        <value>D</value>
+        <value>G</value>
+    </util:list>
+    <util:list id="listSeventh">
+        <value>B</value>
+        <value>E</value>
+        <value>H</value>
+    </util:list>
+    <util:list id="listEighth">
+        <value>C</value>
+        <value>F</value>
+        <value>I</value>
+    </util:list>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix">
+            <value>/WEB-INF/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+</beans>

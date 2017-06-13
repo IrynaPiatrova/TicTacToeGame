@@ -39,6 +39,7 @@
     <table class="tbl" align="center">
         <tr>
             <td><input type='button' value=" Новая игра " onClick="playAgain();"><br></td>
+            <td>${value}</td>
         </tr>
     </table>
 </form>

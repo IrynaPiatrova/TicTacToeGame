@@ -1,7 +1,7 @@
 package game.classes.combinations.three.impl;
 
 import game.classes.combinations.three.CombinationsThreeByThree;
-import game.classes.combinations.three.combination.Combination;
+import game.classes.combinations.three.combination.impl.CombinationImpl;
 import game.classes.constants.SVConstants;
 import game.classes.players.role.Solver.RoleSolver;
 import org.springframework.stereotype.Component;
@@ -17,30 +17,38 @@ import java.util.List;
 public class CombinationsThreeByThreeImpl implements CombinationsThreeByThree {
 
     @Resource(name = "eighth")
-    private Combination eighth;
+    private CombinationImpl eighth;
     @Resource(name = "fifth")
-    private Combination fifth;
+    private CombinationImpl fifth;
     @Resource(name = "first")
-    private Combination first;
+    private CombinationImpl first;
     @Resource(name = "fourth")
-    private Combination fourth;
+    private CombinationImpl fourth;
     @Resource(name = "second")
-    private Combination second;
+    private CombinationImpl second;
     @Resource(name = "seventh")
-    private Combination seventh;
+    private CombinationImpl seventh;
     @Resource(name = "sixth")
-    private Combination sixth;
+    private CombinationImpl sixth;
     @Resource(name = "third")
-    private Combination third;
+    private CombinationImpl third;
     @Resource(name = "roleSolverSb")
     private RoleSolver sb;
 
     private List<String> filledPositionsX = new ArrayList<>();
     private List<String> filledPositionsO = new ArrayList<>();
     private List<String> filledPositions = new ArrayList<>();
-    private List<List<String>> combinationsList;
+    private List<List<String>> combinationsFilledList = new ArrayList<>();
 
     private String role;
+
+    public List<List<String>> getCombinationsFilledList() {
+        return combinationsFilledList;
+    }
+
+    public void setCombinationsFilledList(List<List<String>> combinationsFilledList) {
+        this.combinationsFilledList = combinationsFilledList;
+    }
 
     @Override
     public String getRole() {
@@ -48,22 +56,22 @@ public class CombinationsThreeByThreeImpl implements CombinationsThreeByThree {
     }
 
     private void initCombinationList() {
-        combinationsList = new ArrayList<>();
-        combinationsList.add(eighth.getCombination());
-        combinationsList.add(fifth.getCombination());
-        combinationsList.add(first.getCombination());
-        combinationsList.add(fourth.getCombination());
-        combinationsList.add(second.getCombination());
-        combinationsList.add(seventh.getCombination());
-        combinationsList.add(sixth.getCombination());
-        combinationsList.add(third.getCombination());
+
+        combinationsFilledList.add(eighth.getCombinationList());
+        combinationsFilledList.add(fifth.getCombinationList());
+        combinationsFilledList.add(first.getCombinationList());
+        combinationsFilledList.add(fourth.getCombinationList());
+        combinationsFilledList.add(second.getCombinationList());
+        combinationsFilledList.add(seventh.getCombinationList());
+        combinationsFilledList.add(sixth.getCombinationList());
+        combinationsFilledList.add(third.getCombinationList());
     }
 
 
     @Override
     public boolean isCombination(List<String> allFilledCells) {
-        initCombinationList();
-        for (List<String> combinationList : combinationsList) {
+        //initCombinationList();
+        for (List<String> combinationList : combinationsFilledList) {
             if (allFilledCells != null && allFilledCells.contains(combinationList)) {
                 return true;
             }
